@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <title>Juego educativo</title>
+
+    <!-- Cargar archivos estáticos -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Users/css/styles.css' %}">
+
+</head>
+
+<body>
+    <div class="contenedor-video">
+    <video class="video-ajustado" autoplay muted loop>
+        <source src="{% static 'Users/images/fondos/inicio.mp4' %}" type="video/mp4">
+        Tu navegador no soporta la reproducción de video.
+    </video>
+    
+    <div class="texto-sobre-video">
+        <h1 class="texto-pixelado">CODETRAINER</h1>
+    </div>
+    
+    <img class="imagen-sobre-video" src="{% static 'Users/images/fondos/pokemon.png' %}" alt="Logo">
+    <img class="imagen-sobre-video2" src="{% static 'Users/images/pokemones/bulbasur/Bulbasur.png' %}" alt="Logo">
+    <img class="imagen-sobre-video3" src="{% static 'Users/images/pokemones/charmander/charmander5.png' %}" alt="Logo">
+    <img class="imagen-sobre-video4" src="{% static 'Users/images/pokemones/squirtle/squirtle.png' %}" alt="Logo">
+
+    <!-- Botón oculto que aparecerá después de 10 segundos -->
+    <button class="boton-play" id="botonPlay">PLAY</button>
+
+    </div>
+
+    <div class="login-container">
+        <h2 class="titulo">NOMBRE DE USUARIO</h2><br/>
+        <form class="login-form">
+            <input type="text" placeholder="Ingresa tu usuario" required>
+            <button type="submit" class="boton-play2" >ACCEDER</button>
+        </form><br/>
+        <div class="letritas-container"> 
+        <p class="registro-texto">
+            ¿No tienes cuenta? <a href="#" class="registro-link" id="showRegister">Regístrate</a>
+        </p>
+        </div>
+    </div>
+
+    <!-- Formulario de Registro (Oculto al inicio) -->
+    <div class="register-container " id="registerForm">
+        <h2 class="titulo">NOMBRE DE USUARIO</h2>
+        <form class="register-form">
+        <input id="nickName" type="text" placeholder="Ingresa tu nombre de usuario" required><br/><br/>
+        <h2 class="titulo">NOMBRE PARA EL DIPLOMA</h2>
+        <input id="nombre" type="text" placeholder="Ingresa tu nombre completo" required><br/><br/>
+        <button type="submit" class="boton-play2" >CONTINUAR</button>
+        </form><br/>
+        <div class="letritas-container"> 
+        <p class="registro-texto">
+            ¿Ya tienes una cuenta? <a href="#" class="registro-link" id="showLogin">Accede</a>
+        </p>
+        </div>
+    </div>
+
+    <!-- Mensaje de error oculto -->
+<div id="error-message" class="error-container hidden">
+    <p>⚠️ Todos los campos deben estar llenos.</p>
+    <button id="close-error">Aceptar</button>
+</div>
+
+
+
+<!-- Contenedor de la pantalla negra con texto y opciones -->
+<div id="aventura-container" >
+    <div class= "textoParaElegir" >
+    <p id="aventura-texto"></p> <!-- Aquí aparecerá el texto con efecto de escritura -->
+    <br/><br/>
+    </div>
+    <!-- Espacio para imágenes -->
+    <div id="imagenes-companeros">
+        <img src="{% static 'Users/images/avatars/avatar1/avatar1Parado.png' %}" class="pokemon-img">
+        <img src="{% static 'Users/images/avatars/avatar2/avatarParado.png' %}" class="pokemon-img">
+    </div>
+
+</div>
+
+
+<!-- Cuadro de Confirmación Personalizado -->
+<div id="confirmacion-container" class="hidden">
+    <p id="confirmacion-texto">¿Quieres elegir este compañero para tu aventura?</p>
+    <div class="confirmacion-botones">
+        <button id="confirmar-avatar" class="boton-pixelado">Sí</button>
+        <button id="cancelar-avatar" class="boton-pixelado">No</button>
+    </div>
+</div>
+
+<!-- Cuadro de Confirmación para elegir Pokémon -->
+<div id="confirmacion-pokemon" class="hidden">
+    <p id="confirmacion-texto-pokemon">¿Quieres elegir este Pokémon para tu aventura?</p>
+    <div class="confirmacion-botones">
+        <button id="confirmar-pokemon" class="boton-pixelado">Sí</button>
+        <button id="cancelar-pokemon" class="boton-pixelado">No</button>
+    </div>
+</div>
+
+
+
+
+<!-- Contenedor de Selección de Compañero -->
+<div id="companero-container" class="hidden">
+    <div class="textoParaElegir">
+        <p id="companero-texto"></p> <!-- Aquí aparecerá el texto con efecto de escritura -->
+        <br/><br/>
+    </div>
+    
+    <!-- Espacio para las imágenes de los compañeros -->
+    <div id="imagenes-companeros2">
+        <img src="{% static 'Users/images/pokemones/bulbasur/Bulbasur.png' %}" class="pokemon-img2">
+        <img src="{% static 'Users/images/pokemones/charmander/charmander.png' %}" class="pokemon-img2">
+        <img src="{% static 'Users/images/pokemones/squirtle/squirtle.png' %}" class="pokemon-img2">
+    </div>
+</div>
+
+<!-- Contenedor del botón "Crear Cuenta" -->
+<div id="crear-cuenta-container" class="hidden">
+    <button id="crear-cuenta" class="boton-play2">CREAR CUENTA</button>
+</div>
+
+
+    <!-- Script de JavaScript para mostrar el botón después de 10 segundos -->
+    <script src="{% static 'Users/js/scripts.js' %}"></script>
+</body>
+</html>
