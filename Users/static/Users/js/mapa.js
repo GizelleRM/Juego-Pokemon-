@@ -30,6 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         zona.style.cursor = 'pointer';
         zona.style.backgroundColor = 'rgba(0, 255, 0, 0)'; // visible por ahora
         document.getElementById('mapa').appendChild(zona);
+        //
     });
 
     // Escuchar clics
