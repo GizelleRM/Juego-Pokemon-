@@ -6,5 +6,6 @@ urlpatterns = [
     path('usuarios/crear/', crear_usuario, name  = 'crear_usuario'),
     path('mapa/<str:nickname>/', vista_mapa, name='vista_mapa'),
     path('login/', login_usuario, name='login_usuario'),
-]
+    path('usuarios/instructora/', instructora, name='instructora'),  # Nueva ruta
+    path('evolucion/', evolucion, name='evolucion'),
 

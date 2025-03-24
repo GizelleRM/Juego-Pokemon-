@@ -1,0 +1,92 @@
+/* Estilos generales para el cuerpo */
+body {
+    background-color: #f4f4f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Contenedor central de 900px por 600px */
+.contenedor {
+    width: 900px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #333;
+    overflow: hidden;
+}
+
+/* Estilo para la imagen de fondo */
+.fondo-imagen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Estilo para la imagen de la instructora */
+.instructora-imagen, .imagen-sobre-video2 {
+    position: absolute;
+    left: 65px;
+    top: 65%;
+    transform: translateY(-50%);
+    z-index: 2;
+    width: 140px;
+    height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efecto hover de la instructora */
+.instructora-imagen:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para el globo de diálogo */
+.globo-dialogo {
+    display: none;  /* Inicialmente oculto */
+    position: absolute;
+    left: 300px;
+    top: 30%;
+    transform: translateY(-50%);
+    width: 400px;  /* Tamaño del cuadro del globo */
+    padding: 15px;
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    font-family: 'Press Start 2P', cursive; /* Estilo de píxel */
+    font-size: 18px;
+    text-align: left;  /* Alineación izquierda */
+    z-index: 3;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 200px;
+    max-width: 350px;
+    padding-right: 10px; /* Espacio adicional para el texto */
+}
+
+/* Animación para el texto */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Aplicar el tipo de efecto máquina de escribir al texto */
+#instructorTexto {
+    white-space: pre-line;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(60) forwards; /* 3 segundos, 60 pasos */
+}
