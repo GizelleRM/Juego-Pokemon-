@@ -4,9 +4,16 @@ from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import get_object_or_404
 from .models import Users
 import json
+from django.http import HttpResponse
 
 def home(request):
     return render(request, 'Users/home.html')
+def evolucion(request):
+    return render(request, 'Users/evolucion.html')
+
+# Vista para la página de instructora
+def instructora(request):
+    return render(request, 'Users/instructora.html')
 
 # 🔹 Crear usuario
 @csrf_exempt
