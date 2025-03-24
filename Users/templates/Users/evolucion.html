@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evoluciones</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'Users/css/evolucion.css' %}">
+</head>
+
+<body>
+
+    <!-- PRIMERA EVOLUCIÓN: Bulbasaur a Ivysaur -->
+<div class="evolucion-box">
+    <img id="bulba1" class="bulba visible" src="{% static 'Users/images/pokemones/bulbasur/Bulbasur.png' %}">
+    <img id="bulba2" class="bulba" src="{% static 'Users/images/pokemones/Ivysaur/Ivysaur.png' %}">
+    <img id="bulba3" class="bulba" src="{% static 'Users/images/pokemones/Ivysaur/IvysaurOjosCerrados.png' %}">
+</div>
+
+<!-- SEGUNDA EVOLUCIÓN: Ivysaur a Venusaur -->
+<div class="evolucion-box2">
+    <img id="ivy1" class="bulba visible" src="{% static 'Users/images/pokemones/Ivysaur/Ivysaur.png' %}">
+    <img id="ivy2" class="bulba" src="{% static 'Users/images/pokemones/Venusaur/Venusaur.png' %}">
+    <img id="ivy3" class="bulba" src="{% static 'Users/images/pokemones/Venusaur/VenusaurOjosCerrados.png' %}">
+</div>
+
+<div class="button">
+    <button onclick="evolucionarABulba()">¡Bulbasaur Evoluciona!</button>
+    <button onclick="evolucionarAIvy()">¡Ivysaur Evoluciona!</button>
+</div>
+
+
+    <div id="mensaje">¡Felicidades! pokemon ha evolucionado </div>
+
+    <script>
+        function evolucionarABulba() {
+            const bulba1 = document.getElementById('bulba1');
+            const bulba2 = document.getElementById('bulba2');
+            const bulba3 = document.getElementById('bulba3');
+            const mensaje = document.getElementById('mensaje');
+        
+            bulba1.classList.add('fade-out');
+        
+            setTimeout(() => {
+                bulba1.style.display = 'none';
+                bulba2.classList.add('visible');
+                mensaje.classList.add('visible');
+        
+                setTimeout(() => {
+                    let parpadeando = true;
+                    setInterval(() => {
+                        if (parpadeando) {
+                            bulba2.classList.remove('visible');
+                            bulba3.classList.add('visible');
+                        } else {
+                            bulba2.classList.add('visible');
+                            bulba3.classList.remove('visible');
+                        }
+                        parpadeando = !parpadeando;
+                    }, 800);
+                }, 1000);
+            }, 500);
+        }
+        
+        function evolucionarAIvy() {
+            const ivy1 = document.getElementById('ivy1');
+            const ivy2 = document.getElementById('ivy2');
+            const ivy3 = document.getElementById('ivy3');
+        
+            ivy1.classList.add('fade-out');
+        
+            setTimeout(() => {
+                ivy1.style.display = 'none';
+                ivy2.classList.add('visible');
+        
+                setTimeout(() => {
+                    let parpadeando = true;
+                    setInterval(() => {
+                        if (parpadeando) {
+                            ivy2.classList.remove('visible');
+                            ivy3.classList.add('visible');
+                        } else {
+                            ivy2.classList.add('visible');
+                            ivy3.classList.remove('visible');
+                        }
+                        parpadeando = !parpadeando;
+                    }, 800);
+                }, 1000);
+            }, 500);
+        }
+        </script>
+        
+
+</body>
+
+</html>

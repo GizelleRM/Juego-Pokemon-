@@ -8,6 +8,8 @@ from django.http import HttpResponse
 
 def home(request):
     return render(request, 'Users/home.html')
+def evolucion(request):
+    return render(request, 'Users/evolucion.html')
 
 # Vista para la página de instructora
 def instructora(request):
