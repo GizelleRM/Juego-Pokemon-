@@ -4,7 +4,6 @@ let nickName = "";
 let avatarSeleccionado = 1;
 let pokemonSeleccionado = 2;
 
-
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Página cargada. Iniciando temporizador de 10 segundos...");
 
@@ -287,6 +286,23 @@ document.addEventListener("DOMContentLoaded", function () {
             } else {
                 alert('Usuario creado exitosamente');
                 console.log(data);
+        
+                // Hacer login automático y redirigir al mapa
+                fetch('/login/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ nickName: nickName })
+                })
+                .then(res => res.json())
+                .then(loginData => {
+                    if (loginData.redirect_url) {
+                        window.location.href = loginData.redirect_url;
+                    } else {
+                        alert(loginData.error || 'Error al iniciar sesión');
+                    }
+                });
             }
         })
         .catch(error => {
@@ -296,7 +312,37 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
        
-
+    document.getElementById("botonLogin").addEventListener("click", function () {
+        const loginInput = document.getElementById("loginNick");
+        const nick = loginInput.value.trim();
     
+        if (!nick) {
+            alert("Por favor ingresa un nombre de usuario.");
+            loginInput.style.border = "2px solid red";
+            return;
+        }
+    
+        loginInput.style.border = "2px solid white";
+    
+        fetch('/login/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ nickName: nick })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.redirect_url) {
+                window.location.href = data.redirect_url;
+            } else {
+                alert(data.error || 'Usuario no encontrado');
+            }
+        })
+        .catch(error => {
+            console.error("Error al iniciar sesión:", error);
+            alert("Ocurrió un error al intentar iniciar sesión.");
+        });
+    });
     
 });

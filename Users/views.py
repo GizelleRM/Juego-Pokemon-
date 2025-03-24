@@ -61,3 +61,40 @@ def listar_usuarios(request):
         usuarios_serializables.append(usuario)
 
     return JsonResponse(usuarios_serializables, safe=False)
+
+def vista_mapa(request, nickname):
+    usuario = get_object_or_404(Users, nickName=nickname)
+
+    # Ruta relativa a la carpeta static
+    avatar_url = f'Users/images/avatars/avatar{usuario.id_instructor}/Avatar1Parado.png' if usuario.id_instructor else 'Users/images/avatars/default.png'
+    pokemon_url = f'Users/images/pokemones/squirtle/squirtle.png' if usuario.id_mascota else 'Users/images/pokemones/default.png'
+
+    contexto = {
+        'nickName': usuario.nickName,
+        'avatar_url': avatar_url,
+        'pokemon_url': pokemon_url
+    }
+
+    return render(request, 'Users/mapa.html', contexto)
+
+@csrf_exempt
+def login_usuario(request):
+    if request.method == 'POST':
+        try:
+            datos = json.loads(request.body)
+            nickname = datos.get('nickName')
+
+            usuario = Users.objects.filter(nickName=nickname).first()
+
+            if usuario:
+                return JsonResponse({
+                    'mensaje': 'Inicio de sesión exitoso',
+                    'redirect_url': f'/mapa/{usuario.nickName}/'
+                }, status=200)
+            else:
+                return JsonResponse({'error': 'Usuario no encontrado'}, status=404)
+
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'JSON mal formado'}, status=400)
+
+    return JsonResponse({'error': 'Método no permitido'}, status=405)
