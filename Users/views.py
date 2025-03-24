@@ -7,6 +7,8 @@ import json
 
 def home(request):
     return render(request, 'Users/home.html')
+def evolucion(request):
+    return render(request, 'Users/evolucion.html')
 
 # 🔹 Crear usuario
 @csrf_exempt
