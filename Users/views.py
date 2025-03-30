@@ -72,18 +72,18 @@ def listar_usuarios(request):
 def vista_mapa(request, nickname):
     usuario = get_object_or_404(Users, nickName=nickname)
 
-    # Ruta relativa a la carpeta static
+    #Si el nivel se guardó en base, aquí lo necesitas recargar correctamente
     avatar_url = f'Users/images/avatars/avatar{usuario.id_instructor}/Avatar1Parado.png' if usuario.id_instructor else 'Users/images/avatars/default.png'
     pokemon_url = f'Users/images/pokemones/squirtle/squirtle.png' if usuario.id_mascota else 'Users/images/pokemones/default.png'
 
     contexto = {
         'nickName': usuario.nickName,
         'avatar_url': avatar_url,
-        'pokemon_url': pokemon_url
+        'pokemon_url': pokemon_url,
+        'nivel': usuario.nivel  #este valor debe venir actualizado desde DB
     }
 
     return render(request, 'Users/mapa.html', contexto)
-
 @csrf_exempt
 def login_usuario(request):
     if request.method == 'POST':
@@ -105,3 +105,59 @@ def login_usuario(request):
             return JsonResponse({'error': 'JSON mal formado'}, status=400)
 
     return JsonResponse({'error': 'Método no permitido'}, status=405)
+
+def nivel_2(request, nickname):
+    usuario = get_object_or_404(Users, nickName=nickname)
+
+    contexto = {
+        'nickName': usuario.nickName,
+        'avatar_url': f'Users/images/avatars/avatar{usuario.id_instructor}/Avatar1Parado.png' if usuario.id_instructor else 'Users/images/avatars/default.png',
+        'pokemon_url': f'Users/images/pokemones/squirtle/squirtle.png' if usuario.id_mascota else 'Users/images/pokemones/default.png',
+        'nivel': usuario.nivel
+    }
+
+    return render(request, 'Users/nivel-2.html', contexto)
+
+from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
+
+@csrf_exempt
+def actualizar_nivel_usuario(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        nickname = data.get('nickName')
+        nuevo_nivel = data.get('nivel')
+        print("Recibido:", nickname, nuevo_nivel)
+        try:
+            usuario = Users.objects.get(nickName=nickname)
+            if nuevo_nivel > usuario.nivel:
+                usuario.nivel = nuevo_nivel
+                usuario.save()
+            return JsonResponse({'mensaje': 'Nivel actualizado correctamente'})
+        except Users.DoesNotExist:
+            return JsonResponse({'error': 'Usuario no encontrado'}, status=404)
+
+    return JsonResponse({'error': 'Método no permitido'}, status=405)
+def nivel_3(request, nickname):
+    usuario = get_object_or_404(Users, nickName=nickname)
+
+    contexto = {
+        'nickName': usuario.nickName,
+        'avatar_url': f'Users/images/avatars/avatar{usuario.id_instructor}/Avatar1Parado.png' if usuario.id_instructor else 'Users/images/avatars/default.png',
+        'pokemon_url': f'Users/images/pokemones/squirtle/squirtle.png' if usuario.id_mascota else 'Users/images/pokemones/default.png',
+        'nivel': usuario.nivel
+    }
+
+    return render(request, 'Users/nivel-3.html', contexto)
+
+def nivel_4(request, nickname):
+    usuario = get_object_or_404(Users, nickName=nickname)
+
+    contexto = {
+        'nickName': usuario.nickName,
+        'avatar_url': f'Users/images/avatars/avatar{usuario.id_instructor}/Avatar1Parado.png' if usuario.id_instructor else 'Users/images/avatars/default.png',
+        'pokemon_url': f'Users/images/pokemones/squirtle/squirtle.png' if usuario.id_mascota else 'Users/images/pokemones/default.png',
+        'nivel': usuario.nivel
+    }
+
+    return render(request, 'Users/nivel-4.html', contexto)

@@ -5,10 +5,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapa de {{ nickName }}</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="{% static 'Users/css/styles.css' %}">
+
     <style>
         body {
             margin: 0;
             overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            height: 100vh;
+            background-color: black;
         }
 
         #mapa {
@@ -21,25 +30,11 @@
             height: auto;
         }
 
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            /* Centra horizontalmente */
-            align-items: start;
-            /* Alinea arriba */
-            height: 100vh;
-            overflow: auto;
-            background-color: black;
-            /* Opcional: color de fondo fuera del mapa */
-        }
-
         .sprite {
             position: absolute;
             width: 5%;
         }
 
-        /* Posiciones relativas a la imagen */
         #avatar {
             top: 10%;
             left: 1%;
@@ -53,11 +48,32 @@
 </head>
 
 <body>
-    <div id="mapa">
+    <div id="mapa" data-nivel="{{ nivel }}">
         <img src="{% static 'Users/images/mapa/principal.png' %}" id="mapa-imagen" />
         <img id="avatar" class="sprite" src="{% static avatar_url %}" />
         <img id="pokemon" class="sprite" src="{% static pokemon_url %}" />
     </div>
+
+    <!--Inyectamos nickName y las rutas por nivel desde el template -->
+    <script>
+        const nickName = "{{ nickName }}";
+
+        const aplicacionesPorNivel = {
+            1: `/mapa/${nickName}/nivel-1/`,
+            2: `/mapa/${nickName}/nivel-2/`,
+            3: `/mapa/${nickName}/nivel-3/`,
+            4: `/mapa/${nickName}/nivel-4/`,
+            5: `/mapa/${nickName}/nivel-5/`,
+            6: `/mapa/${nickName}/nivel-6/`,
+            7: `/mapa/${nickName}/nivel-7/`,
+            8: `/mapa/${nickName}/nivel-8/`,
+            9: `/mapa/${nickName}/nivel-9/`,
+            10: `/mapa/${nickName}/nivel-10/`,
+            11: `/mapa/${nickName}/nivel-11/`
+        };
+    </script>
+
+    <!-- Carga tu script del mapa que ya usa aplicacionesPorNivel -->
     <script src="{% static 'Users/js/mapa.js' %}"></script>
 </body>
 
