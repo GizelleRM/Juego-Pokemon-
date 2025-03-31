@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // Colorear según avance
         if (nivel < nivelActual) {
             zona.style.backgroundColor = 'rgba(0, 200, 0, 0.23)'; // verde: completado
-        } else if (nivel === nivelActual + 1 || nivel === 1) {
+        } else if (nivel <= nivelActual  ) {
             zona.style.backgroundColor = 'rgba(255, 255, 0, 0.26)'; // amarillo: disponible
         } else {
             zona.style.backgroundColor = 'rgba(100, 100, 100, 0.11)'; // gris: bloqueado
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Escuchar clics solo si está permitido
         zona.addEventListener('click', () => {
-            if (nivel === 1 || nivel === nivelActual + 1) {
+            if (nivel <= nivelActual) {
                 moverAvatarAZona(nivel);
                 nivelActual = nivel;
 
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }, 500);
                 }
             } else {
-                alert("Primero debes completar el nivel " + (nivelActual + 1));
+                alert("Primero debes completar el nivel " + (nivelActual));
             }
         });
 
