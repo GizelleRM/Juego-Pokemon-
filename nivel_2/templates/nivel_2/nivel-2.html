@@ -1,0 +1,69 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nivel 2 - Variables y print()</title>
+
+    <!-- Enlace al archivo de estilos específicos de este nivel -->
+    <link rel="stylesheet" href="{% static 'nivel_2/css/styles_level2.css' %}">
+</head>
+
+<body>
+
+<div class="contenedor">
+    <!-- Contenedor de la instructora -->
+    <div class="instructora-imagen">
+        <!-- Imagen de la instructora -->
+        <img class="imagen-sobre-video2" src="{% static 'Users/images/instructora/InstructoraParada.png' %}" alt="Instructora">
+    </div>
+
+    <!-- Imagen de fondo para ambientación -->
+    <img class="fondo-imagen" src="{% static 'Users/images/fondos/fondoInstructora.jpg' %}" alt="Fondo">
+
+    <!-- Globo de diálogo que se muestra cuando la instructora habla -->
+    <div class="globo-dialogo" id="globoDialogo">
+        <!-- Texto del diálogo -->
+        <p id="instructorTexto"></p>
+    </div>
+</div>
+
+<!-- Área para que el usuario escriba su código con instrucciones prellenadas como guía -->
+<textarea id="codigoUsuario" class="area-codigo">
+nombre = "[COMPLETA]"
+edad = [COMPLETA]
+velocidad = [COMPLETA]
+print("Nombre:", [COMPLETA])
+print("Edad:", [COMPLETA])
+print("Velocidad:", [COMPLETA])
+</textarea>
+
+<!-- Botón para que el usuario pueda evaluar su código -->
+<button class="boton-evaluar" onclick="evaluarCodigo()">Evaluar Código</button>
+
+<!-- Contenedor donde se mostrará el resultado de la evaluación del código -->
+<div id="resultado" class="mensaje"></div>
+
+<!-- Botón para volver al mapa si el nivel ya fue completado previamente -->
+{% if mostrar_volver %}
+<button id="btnVolverMapa" class="boton-evaluar" onclick="guardarYVolverAlMapa()">
+    Volver al mapa
+</button>
+{% else %}
+<!-- Si no se ha completado el nivel, el botón se oculta hasta pasar la evaluación -->
+<button id="btnVolverMapa" class="boton-evaluar" style="display: none;" onclick="guardarYVolverAlMapa()">
+    Volver al mapa
+</button>
+{% endif %}
+
+<!-- Variable de JavaScript con el nickname del jugador (protegido contra inyecciones) -->
+<script>
+    const nickName = "{{ nickName|escapejs }}";
+</script>
+
+<!-- Enlace al archivo JavaScript con la lógica específica de este nivel -->
+<script src="{% static 'nivel_2/js/nivel-2.js' %}"></script>
+
+</body>
+</html>
