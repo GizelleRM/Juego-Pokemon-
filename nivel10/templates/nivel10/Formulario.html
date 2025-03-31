@@ -1,0 +1,21 @@
+<!-- cuestionario.html -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cuestionario.css' %}">
+
+<div class="contenedor-formulario">
+    <h2>Cuestionario Nivel {{nivel}}</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {% for pregunta in preguntas %}
+            <h3>{{ pregunta.texto|linebreaksbr|safe }}</h3>
+            {% for opcion in pregunta.opciones.all %}
+                <label>
+                    <input type="radio" name="{{ pregunta.id }}" value="{{ opcion.id }}">
+                    {{ opcion.texto }}
+                </label>
+            {% endfor %}
+            <hr>
+        {% endfor %}
+        <button type="submit" class="boton-pokemon">Enviar</button>
+    </form>
+</div>
