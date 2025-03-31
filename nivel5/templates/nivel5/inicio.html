@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores Lógicos</title>
+    
+    <!-- Cargar archivos estáticos -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nivel5/css/styles_instructora.css' %}">
+    <link rel="stylesheet" href="{% static 'nivel5/css/tablaComparacion.css' %}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <!-- Imagen de la instructora enA el lado izquierdo (por encima del fondo) -->
+        <div class="instructora-imagen" id="instructora">
+            <img class="imagen-sobre-video2" src="{% static 'Users/images/instructora/InstructoraParada.png' %}" alt="Instructora">
+        </div>
+        
+        <!-- Imagen de fondo -->
+        <img class="fondo-imagen" src="{% static 'Users/images/fondos/fondoInstructora.jpg' %}" >
+
+        <!-- Globo de diálogo con el texto (inicialmente oculto) -->
+        <div class="globo-dialogo" id="globoDialogo">
+            <p id="instructorTexto"></p> <!-- El texto aparecerá aquí -->
+        </div>
+        <div id="comparacion" style="display: none;">
+            <div class="Titulo">Operadores de comparación</div>
+            <table class="tabla-operadores">
+                <thead>
+                    <tr>
+                        <th>Significado</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Igual a <br> Es de tipo planta ?</td>
+                        <td><img src="{% static 'nivel5/imagenes/Bulbasur.png' %}" >.tipo == "Planta"  <br>
+                            <code>Bulbasaur.tipo == Planta</code></td>
+                    </tr>
+                    <tr>
+                        <td>Distinto de <br>No es de tipo fuego ?</td>
+                        <td><img src="{% static 'nivel5/imagenes/BulbasurOjosCerrados.png' %}" >.tipo != "fuego"  
+                           <br> <code>Bulbasaur.tipo != Fuego</code></td>
+                    </tr>
+                    <tr>
+                        <td>Menor que <br> Squirtle es mas lento ?</td>
+                        <td><img src="{% static 'nivel5/imagenes/squitleOjosCerrados.png' %}" >.velocidad &lt; <img src="{% static 'nivel5/imagenes/BulbasurOjosCerrados.png' %}">.velocidad 
+                           <br> <code>Squirtle.velocidad &lt; Bulbasaur.velocidad</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mayor que <br> Squirtle tiene mas nivel que Charmander ?</td>
+                        <td><img src="{% static 'nivel5/imagenes/squirtleParado.png' %}" >.nivel &gt; <img src="{% static 'nivel5/imagenes/charmanderParado.png' %}">.nivel 
+                            <br> <code>Squirtle.nivel &gt; Bulbasaur.nivel</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Menor o igual que <br> El nivel de Charmander es menor o igual a 10?</td>
+                        <td><img src="{% static 'nivel5/imagenes/charmanderParado.png' %}" >.nivel &lt;= 10 
+                          <br>  <code>Charmander.nivel &lt;= 10</code>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Mayor o igual que  <br>  La vida  de Charmander es menor o igual a 20?</td>
+                        <td><img src="{% static 'nivel5/imagenes/charmanderOjosCerrados.png' %}" >.hp &gt;= 20 
+                        <br>   <code>Charmander.hp &gt;= 20</code>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="boton-siguiente-contenedor">
+                <button class="boton-siguiente" onclick="irASiguiente()">Siguiente</button>
+            </div> 
+        </div>
+        <div id="logicos" style="display: none;">
+            <div class="Titulo">Operadores de Lógicos</div>
+            <table class="tabla-operadores">
+                <thead>
+                    <tr>
+                        <th>Significado</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>and</strong><br> Ambas condiciones deben ser ciertas</td>
+                        <td><img src="{% static 'nivel5/imagenes/Bulbasur.png' %}" >.tipo == "Planta" <br><strong>and</strong> <br><img src="{% static 'nivel5/imagenes/Bulbasur.png' %}" >.level &lt; 10 :<br>
+                            <code>Bulbasaur no puede pelear !!!</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>or</strong><br> Al menos una condiciones deben ser ciertas</td>
+                        <td><img src="{% static 'nivel5/imagenes/charmanderParado.png' %}" >.tipo == "Fuego"<br><strong>or</strong> <br><img src="{% static 'nivel5/imagenes/charmanderParado.png' %}" >.level == 10 :<br>
+                            <code>Charmander puede pelear !!!</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>not</strong><br>invierte la condición</td>
+                        <td><strong>not </strong><img src="{% static 'nivel5/imagenes/squirtleParado.png' %}" >.hp == 50 :<br>
+                            <code>Squirtle aun no puede evolucionar </code></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="boton-siguiente-contenedor">
+                <button class="boton-siguiente" onclick="irPrueba()">ir a la prueba</button>
+            </div> 
+        </div>
+        <div id="prueba" style="display: none;">
+            <div class="Titulo">Prueba tus habilidades</div>
+            <div class="prueba">
+                Tienes dos variables escoge el mejor operador para cada situación <br>  <br>
+                <code>pokemon = {"nombre": "Eevee", "tipo": "normal", "hp": 55, "nivel": 15}</code>
+                <br>
+                <code>pokemon = {"nombre": "Squirtle", "tipo": "agua", "hp": 35, "nivel": 12}</code>
+            </div>
+            <br>
+            <form id="formulario-prueba">
+                <!-- Pregunta 1 -->
+                <p><strong>1. ¿Eevee tiene más nivel que Squirtle?</strong></p>
+                <label><input type="radio" name="p1"> == </label>
+                <label><input type="radio" name="p1"> > </label>
+                <label><input type="radio" name="p1"> < </label>
+                <label><input type="radio" name="p1"> != </label>
+        
+                <!-- Pregunta 2 -->
+                <p><strong>2. ¿Ambos Pokémon tienen más de 30 HP?</strong></p>
+                <label><input type="radio" name="p2"> or </label>
+                <label><input type="radio" name="p2"> and </label>
+                <label><input type="radio" name="p2"> not </label>
+        
+                <!-- Pregunta 3 -->
+                <p><strong>3. ¿Squirtle NO es tipo fuego?</strong></p>
+                <label><input type="radio" name="p3"> == </label>
+                <label><input type="radio" name="p3"> != </label>
+                <label><input type="radio" name="p3"> not </label>
+        
+                <!-- Pregunta 4 -->
+                <p><strong>4. ¿Al menos uno de los Pokémon tiene más de 50 HP?</strong></p>
+                <label><input type="radio" name="p4"> and </label>
+                <label><input type="radio" name="p4"> or </label>
+                <label><input type="radio" name="p4"> not </label>
+        
+                <!-- Pregunta 5 -->
+                <p><strong>5. ¿El tipo de Eevee es "agua"?</strong></p>
+                <label><input type="radio" name="p5"> == </label>
+                <label><input type="radio" name="p5"> != </label>
+                <label><input type="radio" name="p5"> >= </label>
+        
+                <!-- Pregunta 6 -->
+                <p><strong>6. ¿Eevee tiene más HP y más nivel que Squirtle?</strong></p>
+                <label><input type="radio" name="p6"> and </label>
+                <label><input type="radio" name="p6"> or </label>
+                <label><input type="radio" name="p6"> not </label>
+        
+                <!-- Pregunta 7 -->
+                <p><strong>7. ¿Squirtle tiene nivel igual o menor que Eevee?</strong></p>
+                <label><input type="radio" name="p7"> <= </label>
+                <label><input type="radio" name="p7"> == </label>
+                <label><input type="radio" name="p7"> > </label>
+        
+                <br><br>
+                <button type="button" onclick="revisarRespuestas()">Revisar</button>
+            </form>
+        
+            <div id="resultado-prueba" style="margin-top: 20px; font-weight: bold;"></div>
+            
+        </div>
+    </div>
+
+
+    <!-- Enlazar el archivo JS -->
+    <script src="{% static 'nivel5/js/nivel5.js' %}"></script>
+</body>
+</html>

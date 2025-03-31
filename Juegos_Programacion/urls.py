@@ -21,10 +21,13 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('Users.urls')),
-    path('nivel1/', include('nivel1.urls')),
-    path('admin/', admin.site.urls),  # ← ¡esta línea es obligatoria!
-    path('nivel8', include('nivel8.urls'))
-
+    path('nivel5/', include('nivel5.urls')),
+    path('nivel6/', include('nivel6.urls')),
+    path('nivel7/', include('nivel7.urls')),
+    path('nivel8/', include('nivel8.urls')),
+    path('nivel11/', include('nivel11.urls')),
+    path('admin/', admin.site.urls),  # ¡esta línea es obligatoria!
 ]
+
 
 
