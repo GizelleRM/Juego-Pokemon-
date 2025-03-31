@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Nivel 3 - Listas y Diccionarios</title>
-    <link rel="stylesheet" href="{% static 'Users/css/styles_level2.css' %}">
+    <link rel="stylesheet" href="{% static 'nivel_3/css/styles_level2.css' %}">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
 
     <textarea id="codigoUsuario" class="area-codigo">
         mochila = ["Pokeball", [COMPLETA]]
-        pokemon = {"nombre": [COMPLETA], [COMPLETA]: "fuego"}
+        pokemon = {"nombre": [COMPLETA], "tipo": [COMPLETA]}
         </textarea>
 
     <!-- Botón para evaluar -->
@@ -36,10 +36,16 @@
 
     <!-- Resultado del código -->
     <div id="resultado" class="mensaje"></div>
-
     <!-- Botón para volver al mapa -->
-    <button id="btnVolverMapa" class="boton-evaluar" style="display: none;" onclick="guardarYVolverAlMapa()">Volver al
-        mapa</button>
+    {% if mostrar_volver %}
+    <button id="btnVolverMapa" class="boton-evaluar" onclick="guardarYVolverAlMapa()">
+        Volver al mapa
+    </button>
+    {% else %}
+    <button id="btnVolverMapa" class="boton-evaluar" style="display: none;" onclick="guardarYVolverAlMapa()">
+        Volver al mapa
+    </button>
+    {% endif %}
 
     <!-- Variable global JS -->
     <script>
@@ -47,7 +53,7 @@
     </script>
 
     <!-- Script del nivel -->
-    <script src="{% static 'Users/js/nivel-3.js' %}"></script>
+    <script src="{% static 'nivel_3/js/nivel-3.js' %}"></script>
 
 </body>
 

@@ -3,8 +3,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Nivel 2 - Variables y print()</title>
-    <link rel="stylesheet" href="{% static 'Users/css/styles_level2.css' %}">
+    <title>Nivel 4 - Operadores Matemáticos</title>
+    <link rel="stylesheet" href="{% static 'nivel_4/css/styles_level2.css' %}">
 </head>
 <body>
 
@@ -25,32 +25,50 @@
 
 <!-- Área para escribir código -->
 <textarea id="codigoUsuario" class="area-codigo">
-    nombre = "[COMPLETA]"
-    edad = [COMPLETA]
-    velocidad = [COMPLETA]
-    print("Nombre:", [COMPLETA])
-    print("Edad:", [COMPLETA])
-    print("Velocidad:", [COMPLETA])
-    </textarea>
-    
+# Suma de edades
+edad1 = 5
+edad2 = 7
+edad_total = edad1 [COMPLETA] edad2
+
+# Promedio de velocidad
+vel1 = 3.5
+vel2 = 4.5
+promedio_velocidad = (vel1 + vel2) [COMPLETA] 2
+
+# Multiplicación de niveles
+nivel1 = 2
+nivel2 = 4
+poder = nivel1 [COMPLETA] nivel2
+
+# Mostrar resultados
+print("Edad total:", [COMPLETA])
+print("Promedio de velocidad:", promedio_velocidad)
+print("Poder de ataque:", [COMPLETA])
+</textarea>
+
 <!-- Botón para evaluar -->
 <button class="boton-evaluar" onclick="evaluarCodigo()">Evaluar Código</button>
 
-<!-- Resultado del código -->
+<!-- Resultado -->
 <div id="resultado" class="mensaje"></div>
 
-<!-- Botón para volver -->
+<!-- Botón volver -->
+{% if mostrar_volver %}
+<button id="btnVolverMapa" class="boton-evaluar" onclick="guardarYVolverAlMapa()">
+    Volver al mapa
+</button>
+{% else %}
 <button id="btnVolverMapa" class="boton-evaluar" style="display: none;" onclick="guardarYVolverAlMapa()">
     Volver al mapa
 </button>
-
-<!-- Variable JavaScript primero -->
+{% endif %}
+<!-- nickName global -->
 <script>
     const nickName = "{{ nickName|escapejs }}";
 </script>
 
-<!-- Luego el script -->
-<script src="{% static 'Users/js/nivel-2.js' %}"></script>
+<!-- Script del nivel -->
+<script src="{% static 'nivel_4/js/nivel-4.js' %}"></script>
 
 </body>
 </html>

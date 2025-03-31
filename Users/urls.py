@@ -1,5 +1,7 @@
 from django.urls import path,include
+from django.urls import path
 from django.shortcuts import redirect
+
 from .views import crear_usuario, listar_usuarios,home,vista_mapa,login_usuario, instructora, evolucion,nivel_2,nivel_3,nivel_4, actualizar_nivel_usuario
 urlpatterns = [
     path('',home, name="home"),
