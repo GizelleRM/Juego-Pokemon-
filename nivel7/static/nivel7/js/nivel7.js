@@ -10,7 +10,7 @@ function mostrarTexto() {
     var texto = [
         "¡Ahora vamos a recorrer datos! Con un for, puedes revisar cada ataque de tu Pokémon, uno por uno." ,
         " ¡Es como pasar lista de movimientos antes de entrar al combate!",
-        
+
 
     ];
 
@@ -47,10 +47,10 @@ function irPrueba(){
     document.getElementById("prueba").style.display = "block";
 }
 function revisarRespuestas() {
-    const preguntas = ["c1", "c2", "c3", "c4", "c5"];
+    const preguntas = ["f1", "f2", "f3", "f4", "f5"];
     let todasContestadas = true;
 
-    // Verificar si todas están contestadas
+    // Verificar si todas las preguntas están respondidas
     for (let i = 0; i < preguntas.length; i++) {
         const opciones = document.getElementsByName(preguntas[i]);
         let algunaSeleccionada = false;
@@ -67,17 +67,17 @@ function revisarRespuestas() {
     }
 
     if (!todasContestadas) {
-        alert("⚠️ Debes responder todas las preguntas antes de revisar.");
+        alert("Debes responder todas las preguntas antes de revisar.");
         return;
     }
 
     // Respuestas correctas esperadas
     const respuestasCorrectas = {
-        c1: "if",
-        c2: "elif",
-        c3: "else",
-        c4: "if",
-        c5: "elif"
+        f1: "for nombre in pokemones:",
+        f2: "Recorre la lista usando índices",
+        f3: "Pikachu, Charmander, Bulbasaur",
+        f4: "for i in range(3):",
+        f5: "Muestra índice y nombre correctamente"
     };
 
     let puntuacion = 0;
@@ -90,13 +90,12 @@ function revisarRespuestas() {
         }
     }
 
-    const resultado = document.getElementById("resultado-condicionales");
+    const resultado = document.getElementById("resultado-for");
     if (puntuacion === preguntas.length) {
-        resultado.innerHTML = ` ¡Excelente! Has dominado los condicionales. Puntaje: ${puntuacion}/${preguntas.length}`;
+        resultado.innerHTML = ` ¡Dominaste el ciclo for! Puntaje: ${puntuacion}/${preguntas.length}`;
     } else if (puntuacion >= preguntas.length * 0.6) {
-        resultado.innerHTML = ` Buen intento. Aciertos: ${puntuacion}/${preguntas.length}. ¡Sigue practicando!`;
+        resultado.innerHTML = ` Buen intento. Aciertos: ${puntuacion}/${preguntas.length}`;
     } else {
-        resultado.innerHTML = ` Necesitas estudiar más los condicionales... Aciertos: ${puntuacion}/${preguntas.length}`;
+        resultado.innerHTML = ` Necesitas practicar más los ciclos. Aciertos: ${puntuacion}/${preguntas.length}`;
     }
-
 }

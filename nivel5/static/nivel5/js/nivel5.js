@@ -24,7 +24,7 @@ function mostrarTexto() {
             parrafo.innerText = texto[i];  // Escribir el siguiente párrafo
             textoElement.appendChild(parrafo);  // Añadir el párrafo al globo
             i++;
-            setTimeout(escribirTexto, 5);  // Esperar 4 segundos antes de escribir el siguiente
+            setTimeout(escribirTexto, 5500);  // Esperar 4 segundos antes de escribir el siguiente
         } else {
             // Si es el último párrafo, agregar un evento de clic para cerrar el globo
             textoElement.innerHTML += "<p>Haz clic en cualquier parte para continuar...</p>";
@@ -71,7 +71,7 @@ function revisarRespuestas() {
     }
 
     if (!todasContestadas) {
-        alert("⚠️ Debes responder todas las preguntas antes de revisar.");
+        alert("Debes responder todas las preguntas antes de revisar.");
         return; // Salir si falta alguna
     }
 
