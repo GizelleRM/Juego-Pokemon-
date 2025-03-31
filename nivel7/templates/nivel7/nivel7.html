@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo for</title>
+    
+    <!-- Cargar archivos estáticos -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nivel7/css/styles_instructora.css' %}">
+    <link rel="stylesheet" href="{% static 'nivel7/css/tablaComparacion.css' %}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <!-- Imagen de la instructora enA el lado izquierdo (por encima del fondo) -->
+        <div class="instructora-imagen" id="instructora">
+            <img class="imagen-sobre-video2" src="{% static 'Users/images/instructora/InstructoraParada.png' %}" alt="Instructora">
+        </div>
+        
+        <!-- Imagen de fondo -->
+        <img class="fondo-imagen" src="{% static 'Users/images/fondos/fondoInstructora.jpg' %}" >
+
+        <!-- Globo de diálogo con el texto (inicialmente oculto) -->
+        <div class="globo-dialogo" id="globoDialogo">
+            <p id="instructorTexto"></p> <!-- El texto aparecerá aquí -->
+        </div>
+
+        <div id="condiciones" style="display:none;">
+            <div class="Titulo">Ciclo</div>
+            <div class="codigo-ciclo">
+                <code>
+                    ataques = ["Impactrueno", "Gruñido", "Ataque rápido"]<br>
+                    for i in range(len(ataques)):<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;print(f"Movimiento {i+1}: {ataques[i]}")
+                </code>
+            </div>
+         
+            <div class="boton-siguiente-contenedor">
+                <button class="boton-siguiente" onclick="irPrueba()">ir a la prueba</button>
+            </div> 
+        </div>
+        <div id="prueba" style="display: none;">
+            <div class="Titulo">Prueba: Ciclo <code>for</code></div>
+    <div class="prueba">
+        Observa las situaciones y elige la opción que mejor describe el uso del ciclo <code>for</code>.
+        <br><br>
+        <code>pokemones = ["Pikachu", "Charmander", "Bulbasaur"]</code>
+    </div>
+    <br>
+    <form id="formulario-prueba">
+        <!-- Pregunta 1 -->
+        <p><strong>1. ¿Cómo recorres todos los nombres de Pokémon?</strong></p>
+        <label><input type="radio" name="f1"> for nombre in pokemones: </label><br>
+        <label><input type="radio" name="f1"> if nombre in pokemones: </label><br>
+        <label><input type="radio" name="f1"> while nombre in pokemones: </label><br>
+
+        <!-- Pregunta 2 -->
+        <p><strong>2. ¿Qué hace <code>for i in range((pokemones)):</code>?</strong></p>
+        <label><input type="radio" name="f2"> Recorre la lista usando índices </label><br>
+        <label><input type="radio" name="f2"> Agrega elementos a la lista </label><br>
+        <label><input type="radio" name="f2"> Ordena los Pokémon por nombre </label><br>
+
+        <!-- Pregunta 3 -->
+        <p><strong>3. ¿Qué imprime este código?<br>
+        <code>for nombre in pokemones:<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;print(nombre)</code></strong></p>
+        <label><input type="radio" name="f3"> Pikachu, Charmander, Bulbasaur </label><br>
+        <label><input type="radio" name="f3"> Error de sintaxis </label><br>
+        <label><input type="radio" name="f3"> Solo imprime el primero </label><br>
+
+        <!-- Pregunta 4 -->
+        <p><strong>4. ¿Cuál es una estructura válida de ciclo?</strong></p>
+        <label><input type="radio" name="f4"> for i in range(3): </label><br>
+        <label><input type="radio" name="f4"> for i = 0 to 3: </label><br>
+        <label><input type="radio" name="f4"> for i > 3: </label><br>
+
+        <!-- Pregunta 5 -->
+        <p><strong>5. ¿Qué hace este código?<br>
+        <code>for i in range(len(pokemones)):<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;print(i, pokemones[i])</code></strong></p>
+        <label><input type="radio" name="f5"> Muestra índice y nombre correctamente </label><br>
+        <label><input type="radio" name="f5"> Solo muestra el índice </label><br>
+        <label><input type="radio" name="f5"> Da error porque pokemones[i] no existe </label><br>
+
+        <br><br>
+                <button type="button" onclick="revisarRespuestas()">Revisar</button>
+            </form>
+        
+            <div id="resultado-condicionales" style="margin-top: 20px; font-weight: bold;"></div>
+            
+        </div>
+    </div>
+
+
+    <!-- Enlazar el archivo JS -->
+    <script src="{% static 'nivel7/js/nivel7.js' %}"></script>
+</body>
+</html>

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'Users',
     'nivel5',
     'nivel6',
+    'nivel7',
 
 ]
 

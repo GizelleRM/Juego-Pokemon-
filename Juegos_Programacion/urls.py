@@ -23,6 +23,7 @@ urlpatterns = [
     path('', include('Users.urls')),
     path('nivel5/', include('nivel5.urls')),
     path('nivel6/', include('nivel6.urls')),
+    path('nivel7/', include('nivel7.urls')),
 ]
 
 
