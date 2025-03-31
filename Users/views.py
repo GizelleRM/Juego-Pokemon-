@@ -110,18 +110,6 @@ def login_usuario(request):
 
     return JsonResponse({'error': 'Método no permitido'}, status=405)
 
-def nivel_2(request, nickname):
-    usuario = get_object_or_404(Users, nickName=nickname)
-
-    contexto = {
-        'nickName': usuario.nickName,
-        'avatar_url': f'Users/images/avatars/avatar{usuario.id_instructor}/Avatar1Parado.png' if usuario.id_instructor else 'Users/images/avatars/default.png',
-        'pokemon_url': f'Users/images/pokemones/squirtle/squirtle.png' if usuario.id_mascota else 'Users/images/pokemones/default.png',
-        'nivel': usuario.nivel
-    }
-
-    return render(request, 'Users/nivel-2.html', contexto)
-
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
@@ -142,26 +130,3 @@ def actualizar_nivel_usuario(request):
             return JsonResponse({'error': 'Usuario no encontrado'}, status=404)
 
     return JsonResponse({'error': 'Método no permitido'}, status=405)
-def nivel_3(request, nickname):
-    usuario = get_object_or_404(Users, nickName=nickname)
-
-    contexto = {
-        'nickName': usuario.nickName,
-        'avatar_url': f'Users/images/avatars/avatar{usuario.id_instructor}/Avatar1Parado.png' if usuario.id_instructor else 'Users/images/avatars/default.png',
-        'pokemon_url': f'Users/images/pokemones/squirtle/squirtle.png' if usuario.id_mascota else 'Users/images/pokemones/default.png',
-        'nivel': usuario.nivel
-    }
-
-    return render(request, 'Users/nivel-3.html', contexto)
-
-def nivel_4(request, nickname):
-    usuario = get_object_or_404(Users, nickName=nickname)
-
-    contexto = {
-        'nickName': usuario.nickName,
-        'avatar_url': f'Users/images/avatars/avatar{usuario.id_instructor}/Avatar1Parado.png' if usuario.id_instructor else 'Users/images/avatars/default.png',
-        'pokemon_url': f'Users/images/pokemones/squirtle/squirtle.png' if usuario.id_mascota else 'Users/images/pokemones/default.png',
-        'nivel': usuario.nivel
-    }
-
-    return render(request, 'Users/nivel-4.html', contexto)

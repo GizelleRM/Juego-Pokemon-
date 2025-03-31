@@ -1,0 +1,537 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0a0a;
+    text-align: center;
+    margin: 0;
+    padding: 30px;
+}
+
+h1 {
+    color: #000000;
+}
+
+.video-ajustado {
+    position: relative;
+    width: 900px;
+    height: 600px;
+    object-fit: cover;
+    border: 3px solid #333; /* Opcional: borde para visualizar mejor */
+    border-radius: 10px; /* Opcional: esquinas redondeadas */
+}
+
+.texto-sobre-video {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);  /* Centrar exactamente en el medio */
+    color: white;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);  /* Sombras para mejor legibilidad */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.texto-pixelado {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 24px;
+    text-transform: uppercase;
+}
+
+.imagen-sobre-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen exactamente */
+    width: 550px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    z-index: 2; /* Asegura que esté por encima del video */
+}
+
+/* Este es el cotenedor principal */
+.contenedor-video {
+    position: relative;
+    width: 900px;
+    height: 600px;
+    margin: auto;  
+}
+
+.imagen-sobre-video2 {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen exactamente */
+    width: 110px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    z-index: 2; /* Asegura que esté por encima del video */
+}
+
+.imagen-sobre-video3 {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+    transform: translate(-50%, -50%); /* Centra la imagen exactamente */
+    width: 110px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    z-index: 2; /* Asegura que esté por encima del video */
+}
+
+.imagen-sobre-video4 {
+    position: absolute;
+    top: 30%;
+    left: 85%;
+    transform: translate(-50%, -50%); /* Centra la imagen exactamente */
+    width: 120px; /* Ajusta el tamaño de la imagen */
+    height: auto;
+    z-index: 2; /* Asegura que esté por encima del video */
+}
+
+/* Botón Play Estilizado */
+.boton-play {
+    position: absolute;
+    display: none; /* Oculto al inicio */
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen exactamente */
+    background-color: red;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive; /* Fuente retro (Google Fonts) */
+    border: 3px solid black;
+    padding: 10px 30px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto Hover */
+.boton-play:hover { 
+    background-color: darkred;
+}
+
+/* Efecto de oscurecimiento */
+.fade-out {
+    animation: fadeOut 1.5s forwards;
+}
+
+/* Efecto de aparición */
+.fade-in {
+    animation: fadeIn 1.5s forwards;
+}
+
+/* Definimos las animaciones */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        background-color: black; /* Se oscurece */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Ocultar elementos cuando el usuario presione "PLAY" */
+.hidden {
+    display: none !important;
+}
+
+/* Formulario de Inicio de Sesión */
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(2, 138, 201); /* Fondo semi-transparente */
+    border: 4px solid white;
+    padding: 30px;
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    display: none; /* Oculto al inicio */
+}
+
+/* Mostrar formulario cuando se activa */
+.login-container.show {
+    display: block;
+}
+
+/* Estilo del título */
+.titulo {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* Estilo del input */
+.login-form input {
+    width: 90%;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    text-align: center;
+    outline: none;
+}
+
+/* Texto de registro */
+.registro-texto {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: white;
+    margin-co: 15px;
+}
+
+.registro-link {
+    color: limegreen;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.registro-link:hover {
+    text-decoration: underline;
+}
+
+/* Ocultar elementos con clase "hidden" */
+.hidden {
+    display: none !important;
+}
+
+.boton-play2 {
+    display: block !important;
+    visibility: visible !important;
+}
+
+.boton-play2 {
+    position: absolute;
+    display: none; /* Oculto al inicio */
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra la imagen exactamente */
+    background-color: red;
+    color: white;
+    font-size: 21px;
+    font-weight: bold;
+    font-family: 'Press Start 2P', cursive; /* Fuente retro (Google Fonts) */
+    border: 3px solid black;
+    padding: 6px 25px;
+    cursor: pointer;
+    text-transform: uppercase;
+    border-radius: 10px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto Hover */
+.boton-play2:hover { 
+    background-color: darkred;
+}
+
+.register-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(2, 138, 201); /* Fondo semi-transparente */
+    border: 4px solid white;
+    padding: 30px;
+    width: 400px;
+    height: 350px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    display: none; /* Oculto al inicio */
+}
+
+.register-form input {
+    width: 90%;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    text-align: center;
+    outline: none;
+}
+
+/* Texto de registro */
+.registro-texto2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    color: white;
+    
+}
+
+.registro-link2 {
+    color: limegreen;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.registro-link2:hover {
+    text-decoration: underline;
+}
+
+.letritas-container{
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Contenedor del mensaje de error */
+.error-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: red;
+    color: white;
+    padding: 20px;
+    border: 3px solid black;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Ocultar mensaje de error al inicio */
+.hidden {
+    display: none !important;
+}
+
+/* Estilizar el botón dentro del mensaje */
+#error-message button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+#error-message button:hover {
+    background-color: darkred;
+}
+
+/* Contenedor del mensaje y las imágenes */
+#aventura-container {
+    
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 21px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#companero-container {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 21px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+/* Imágenes de los compañeros Pokémon */
+.pokemon-img {
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.pokemon-img:hover {
+    transform: scale(1.2);
+}
+
+/* Mostrar el contenedor cuando sea necesario */
+.show {
+    opacity: 1 !important;
+}
+
+/* Ocultar el contenedor de las imágenes al inicio */
+/* Ocultar imágenes hasta que sean necesarias */
+#imagenes-companeros {
+    display: none;  /* No están presentes en la página hasta que sean necesarias */
+    position: absolute;
+}
+
+/* Mostrar imágenes solo cuando se agregue la clase */
+#imagenes-companeros.show {
+    display: block;  /* Se muestran solo cuando el JS lo indique */
+}
+
+
+.textoParaElegir {
+    margin-bottom: 20px; /* Espacio entre el texto y las imágenes */
+}
+
+/* Contenedor del cuadro de confirmación */
+#confirmacion-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    border: 4px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Botones de confirmación */
+.confirmacion-botones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.boton-pixelado {
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    padding: 10px 15px;
+    font-size: 12px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.boton-pixelado:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}
+
+/* Mostrar el cuadro de confirmación cuando se active */
+.show {
+    opacity: 1 !important;
+}
+
+/* Imágenes de los compañeros Pokémon */
+.pokemon-img2 {
+    position: relative;
+    width: 150px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.pokemon-img2:hover {
+    transform: scale(1.2);
+}
+
+
+
+/* Contenedor del cuadro de confirmación de Pokémon */
+#confirmacion-pokemon {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #222;
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    border: 4px solid white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+/* Botones de confirmación */
+.confirmacion-botones {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+/* Estilo de los botones pixelados */
+.boton-pixelado {
+    background-color: black;
+    color: white;
+    border: 3px solid white;
+    padding: 10px 15px;
+    font-size: 12px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.boton-pixelado:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}
+
+/* Mostrar el cuadro de confirmación cuando se active */
+.show {
+    opacity: 1 !important;
+}
+
+
+/* Botón rojo con estilo pixelado */
+.boton-pixelado-rojo {
+    background-color: red;
+    color: white;
+    border: 3px solid black;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-family: 'Press Start 2P', cursive;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease-in-out;
+}
+
+.boton-pixelado-rojo:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}
+
+/* Contenedor específico para el botón 'Crear Cuenta' */
+#crear-cuenta-container.hidden {
+    display: none !important;
+}
+
+#crear-cuenta-container.show {
+    display: block !important;  /* Mostrar el contenedor */
+    opacity: 1 !important;      /* Asegurarse de que tenga opacidad */
+    pointer-events: auto;       /* Asegura que sea interactuable */
+}

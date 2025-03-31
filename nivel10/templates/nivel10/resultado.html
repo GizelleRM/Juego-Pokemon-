@@ -1,0 +1,17 @@
+<!-- resultado.html -->
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cuestionario.css' %}">
+
+<div class="contenedor-formulario">
+    <h2>Resultados</h2>
+    <p>Obtuviste {{ aciertos }} de {{ total }} aciertos.</p>
+
+    <a href="{% url 'cuestionario_nivel' nivel %}">
+        <button class="boton-pokemon">Volver a intentar</button>
+    </a>
+
+    <a href="{% url 'vista_mapa' nickname=nickname %}">
+        <button class="boton-pokemon">Regresar al mapa</button>
+    </a>
+    
+</div>

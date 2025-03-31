@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Nivel 4 - Operadores Matemáticos</title>
+    <link rel="stylesheet" href="{% static 'nivel_4/css/styles_level2.css' %}">
+</head>
+<body>
+
+<div class="contenedor">
+    <!-- Instructora -->
+    <div class="instructora-imagen">
+        <img class="imagen-sobre-video2" src="{% static 'Users/images/instructora/InstructoraParada.png' %}" alt="Instructora">
+    </div>
+
+    <!-- Fondo -->
+    <img class="fondo-imagen" src="{% static 'Users/images/fondos/fondoInstructora.jpg' %}" alt="Fondo">
+
+    <!-- Globo de diálogo -->
+    <div class="globo-dialogo" id="globoDialogo">
+        <p id="instructorTexto"></p>
+    </div>
+</div>
+
+<!-- Área para escribir código -->
+<textarea id="codigoUsuario" class="area-codigo">
+# Suma de edades
+edad1 = 5
+edad2 = 7
+edad_total = edad1 [COMPLETA] edad2
+
+# Promedio de velocidad
+vel1 = 3.5
+vel2 = 4.5
+promedio_velocidad = (vel1 + vel2) [COMPLETA] 2
+
+# Multiplicación de niveles
+nivel1 = 2
+nivel2 = 4
+poder = nivel1 [COMPLETA] nivel2
+
+# Mostrar resultados
+print("Edad total:", [COMPLETA])
+print("Promedio de velocidad:", promedio_velocidad)
+print("Poder de ataque:", [COMPLETA])
+</textarea>
+
+<!-- Botón para evaluar -->
+<button class="boton-evaluar" onclick="evaluarCodigo()">Evaluar Código</button>
+
+<!-- Resultado -->
+<div id="resultado" class="mensaje"></div>
+
+<!-- Botón volver -->
+{% if mostrar_volver %}
+<button id="btnVolverMapa" class="boton-evaluar" onclick="guardarYVolverAlMapa()">
+    Volver al mapa
+</button>
+{% else %}
+<button id="btnVolverMapa" class="boton-evaluar" style="display: none;" onclick="guardarYVolverAlMapa()">
+    Volver al mapa
+</button>
+{% endif %}
+<!-- nickName global -->
+<script>
+    const nickName = "{{ nickName|escapejs }}";
+</script>
+
+<!-- Script del nivel -->
+<script src="{% static 'nivel_4/js/nivel-4.js' %}"></script>
+
+</body>
+</html>

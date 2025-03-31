@@ -82,3 +82,7 @@ hr {
     text-align: center;
     font-size: 12px;
 }
+h3 {
+    white-space: normal;
+    line-height: 1.6;
+}
