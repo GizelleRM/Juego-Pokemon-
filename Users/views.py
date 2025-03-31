@@ -5,6 +5,8 @@ from django.shortcuts import get_object_or_404
 from .models import Users
 import json
 from django.http import HttpResponse
+from django.shortcuts import redirect
+
 
 def home(request):
     return render(request, 'Users/home.html')
@@ -130,3 +132,22 @@ def actualizar_nivel_usuario(request):
             return JsonResponse({'error': 'Usuario no encontrado'}, status=404)
 
     return JsonResponse({'error': 'Método no permitido'}, status=405)
+# Users/views.py
+@csrf_exempt
+def redireccionar_a_nivel(request, nickname, nivel):
+    # Convertir nivel a string por si viene como int
+    nivel = str(nivel)
+
+    # Mapeamos si querés algunos con guion o sin
+    niveles_validos = {
+        '5': 'nivel5',
+        '6': 'nivel6',
+        '7': 'nivel7',
+    }
+
+    nivel_path = niveles_validos.get(nivel)
+
+    if nivel_path:
+        return redirect(f'/{nivel_path}/')
+    else:
+        return redirect('/')  

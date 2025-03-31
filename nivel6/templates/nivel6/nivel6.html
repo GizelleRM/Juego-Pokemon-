@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="{% static 'nivel6/css/styles_instructora.css' %}">
     <link rel="stylesheet" href="{% static 'nivel6/css/tablaComparacion.css' %}">
 </head>
-<body>
-
+<body data-nickname="{{ nickname }}">
+    <p>PRUEBA NICKNAME EN HTML: {{ nickname }}</p>
     <div class="contenedor">
         <!-- Imagen de la instructora enA el lado izquierdo (por encima del fondo) -->
         <div class="instructora-imagen" id="instructora">
