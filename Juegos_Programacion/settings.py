@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'Users',
      'nivel8',
     'nivel9',
-    'nivel1'
+    'nivel1',
+    'nivel5',
+    'nivel6',
+    'nivel7',
+
 ]
 
 MIDDLEWARE = [
