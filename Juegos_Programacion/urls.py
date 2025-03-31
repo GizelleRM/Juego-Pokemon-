@@ -20,7 +20,8 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('Users.urls'))
+    path('', include('Users.urls')),
+    path('nivel8', include('nivel8.urls'))
 ]
 
 

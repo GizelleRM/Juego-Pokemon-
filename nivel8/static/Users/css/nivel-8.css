@@ -1,0 +1,126 @@
+body {
+    background-color: hsl(0, 7%, 9%);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contenedor {
+    width: 900px;
+    height: 600px;
+    position: relative;
+    background-color: #fff;
+    border: 2px solid #333;
+    overflow: hidden;
+    margin-top: 20px;
+}
+
+.fondo-imagen {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+}
+
+.instructora-imagen {
+    position: absolute;
+    bottom: 105px;
+    left: 120px;
+    z-index: 2;
+}
+
+.imagen-sobre-video2 {
+    width: 140px;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+@keyframes salto {
+    0%   { transform: translateY(0) scale(1); }
+    30%  { transform: translateY(-10px) scale(1.1); }
+    60%  { transform: translateY(0) scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.animar-instructora {
+    animation: salto 0.5s ease-out;
+}
+
+.globo-dialogo {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 320px;
+    width: 460px;
+    background-color: black;
+    color: white;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    padding: 15px;
+    border: 3px solid white;
+    border-radius: 8px;
+    z-index: 3;
+    line-height: 1.4;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+#instructorTexto {
+    white-space: pre-line;
+    overflow: hidden;
+    width: 0;
+}
+
+.texto-animado {
+    animation: typing 3s steps(60) forwards;
+}
+
+.area-codigo {
+    color: rgb(31, 186, 20);
+    width: 900px;
+    background-color: black;
+    height: 180px;
+    margin-top: 20px;
+    font-family: monospace;
+    font-size: 1rem;
+    padding: 30px; /* ← Añadido: margen interno para el texto */
+    box-sizing: border-box; /* ← Asegura que el padding no rompa el ancho */
+}
+
+.boton-evaluar {
+    background-color: red;
+    color: white;
+    border: 3px solid black;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-family: 'Press Start 2P', monospace;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease-in-out;
+}
+
+.boton-evaluar:hover {
+    background-color: darkred;
+    transform: scale(1.1);
+}
+.mensaje {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.boton-esquina {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    z-index: 4; /* Por encima del fondo y diálogo */
+}
