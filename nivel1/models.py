@@ -4,10 +4,15 @@ from django.db import models
 class Pregunta(models.Model):
     # Campo de texto que contiene el enunciado de la pregunta
     texto = models.CharField(max_length=255)
-
+    nivel = models.PositiveIntegerField(default=1)  # 🔸 Nivel al que pertenece la pregunta
+    
+    # Devuelve el texto de la pregunta cuando se muestra como string (útil en el admin o consola)
     def __str__(self):
-        # Devuelve el texto de la pregunta cuando se muestra como string (útil en el admin o consola)
-        return self.texto
+        return f"Nivel {self.nivel}: {self.texto}"
+
+
+        
+
 
 
 # Modelo que representa una opción de respuesta relacionada a una pregunta

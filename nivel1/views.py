@@ -25,15 +25,15 @@ def actualizar_nivel_usuario(request):
 
 # Vista que muestra una pantalla básica del nivel 1
 def nivel1(request):
-    # Renderiza una plantilla simple del nivel, como introducción o menú del nivel
     return render(request, 'nivel1.html')
 
 
 
+
 # Vista principal del cuestionario
 # Vista principal del cuestionario
-def cuestionario(request):
-    preguntas = Pregunta.objects.prefetch_related('opciones').all()
+def cuestionario(request, nivel):
+    preguntas = Pregunta.objects.filter(nivel=nivel).prefetch_related('opciones')
 
     if request.method == "POST":
         aciertos = 0
@@ -47,22 +47,24 @@ def cuestionario(request):
                 if opcion.es_correcta:
                     aciertos += 1
 
-        # 🔹 Lógica para actualizar nivel si tiene 4 o más aciertos
+        # Lógica para avanzar si tiene mínimo 4 aciertos
         if aciertos >= 4 and nickname:
             try:
                 usuario = Users.objects.get(nickName=nickname)
-                if usuario.nivel < 2:
-                    usuario.nivel = 2
+                if usuario.nivel < nivel + 1:
+                    usuario.nivel = nivel + 1
                     usuario.save()
             except Users.DoesNotExist:
-                print("Usuario no encontrado para actualizar nivel")
+                pass
 
         return render(request, 'resultado.html', {
             'aciertos': aciertos,
             'total': total,
+            'nivel': nivel,
             'nickname': nickname
         })
 
     return render(request, 'Formulario.html', {
-        'preguntas': preguntas
+        'preguntas': preguntas,
+        'nivel': nivel
     })

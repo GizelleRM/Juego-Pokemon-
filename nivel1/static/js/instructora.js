@@ -1,3 +1,4 @@
+alert("JS del nivel 1 cargado");
 document.getElementById("instructora").addEventListener("click", function() {
     var globo = document.getElementById("globoDialogo");
     globo.style.display = "block";  // Muestra el globo de diálogo
@@ -38,7 +39,8 @@ function mostrarTexto() {
                 document.body.removeEventListener("click", cerrarGlobo);  // Remueve el listener para evitar clics posteriores
 
                   // Redirigir al cuestionario
-                window.location.href = "cuestionario";
+                
+                window.location.href = `cuestionario/1/`;   
             });
         }
     }

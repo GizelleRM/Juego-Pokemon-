@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Users',
-    'nivel1'
+    'nivel1',
+    'nivel10'
 ]
 
 MIDDLEWARE = [
@@ -131,5 +132,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Users/static'),
-    os.path.join(BASE_DIR, 'nivel1/static')
+    os.path.join(BASE_DIR, 'nivel1/static'),
+    os.path.join(BASE_DIR, 'nivel10/static'),
 ]
