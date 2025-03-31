@@ -23,6 +23,8 @@ urlpatterns = [
     path('', include('Users.urls')),
     path('nivel1/', include('nivel1.urls')),
     path('admin/', admin.site.urls),  # ← ¡esta línea es obligatoria!
+    path('nivel8', include('nivel8.urls'))
+
 ]
 
 

@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Users',
+     'nivel8',
+    'nivel9',
     'nivel1'
 ]
 
