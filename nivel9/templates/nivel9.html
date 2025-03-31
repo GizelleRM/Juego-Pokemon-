@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nivel 5 - Funciones</title>
+    <link rel="stylesheet" href="{% static 'Users/css/nivel9.css' %}">
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <!-- Instructora -->
+        <div class="instructora-imagen">
+            <img class="imagen-sobre-video2" src="{% static 'Users/images/instructora/InstructoraParada.png' %}" alt="Instructora">
+        </div>
+
+        <!-- Fondo -->
+        <img class="fondo-imagen" src="{% static 'Users/images/fondos/fondoInstructora.jpg' %}" alt="Fondo">
+
+        <!-- Globo de diálogo -->
+        <div class="globo-dialogo" id="globoDialogo">
+            <p id="instructorTexto"></p>
+        </div>
+
+        <button id="btnVolverMapa" class="boton-evaluar boton-esquina" onclick="guardarYVolverAlMapa()">Volver al mapa</button>
+    </div>
+
+    <!-- Área de código -->
+    <textarea id="codigoUsuario" class="area-codigo">
+def saltar():
+    [COMPLETA]
+
+def agachar():
+    [COMPLETA]
+    </textarea>
+
+    <!-- Botón para evaluar -->
+    <button class="boton-evaluar" onclick="evaluarCodigo()">EVALUAR CÓDIGO</button>
+
+    <!-- Resultado del código -->
+    <div id="resultado" class="mensaje"></div>
+
+    <!-- Variable global JS -->
+    <script>
+        const nickName = "{{ nickName|escapejs }}";
+    </script>
+
+    <!-- Script del nivel -->
+    <script src="{% static 'Users/js/nivel9.js' %}"></script>
+
+</body>
+</html>

@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Escuchar clics solo si está permitido
         zona.addEventListener('click', () => {
-            if (nivel-1 == nivelActual || nivel <= nivelActual) {
+            if (nivel-1 >nivelActual || nivel <= nivelActual) {
                 moverAvatarAZona(nivel);
                 //nivelActual = nivel;
 

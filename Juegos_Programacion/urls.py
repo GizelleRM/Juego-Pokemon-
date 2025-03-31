@@ -26,7 +26,7 @@ urlpatterns = [
     path('nivel6/', include('nivel6.urls')),
     path('nivel7/', include('nivel7.urls')),
     path('nivel8/', include('nivel8.urls')),
-    path('nivel9', include('nivel9.urls')),
+    path('nivel9/', include('nivel9.urls')),
     path('nivel10/',include('nivel10.urls')),
     path('', include('nivel_2.urls')),
     path('', include('nivel_3.urls')),
