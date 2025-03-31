@@ -22,6 +22,7 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('Users.urls')),
     path('nivel5/', include('nivel5.urls')),
+    path('nivel6/', include('nivel6.urls')),
 ]
 
 
