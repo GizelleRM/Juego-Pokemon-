@@ -67,12 +67,10 @@ function evaluarCodigo() {
     const tieneVelocidad = /velocidad\s*=\s*\d+(\.\d+)?/i.test(codigo);
     const usaPrint = /print\s*\(.+\)/i.test(codigo);
     if (tieneNombre && tieneEdad && tieneVelocidad && usaPrint) {
-        resultado.style.color = "green";
-        resultado.textContent = "✅ ¡Excelente! Has creado y actualizado la ficha de tu Pokémon correctamente.";
+        alert("✅ ¡Excelente! Has creado y actualizado la ficha de tu Pokémon correctamente.");
         document.getElementById("btnVolverMapa").style.display = "block";
     } else {
-        resultado.style.color = "red";
-        resultado.textContent = "❌ Aún falta completar o corregir algo. Habla con la instructora para repasar.";
+        alert("❌ Aún falta completar o corregir algo. Habla con la instructora para repasar.");
     }
 }
 

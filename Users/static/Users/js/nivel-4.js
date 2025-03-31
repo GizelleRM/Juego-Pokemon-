@@ -61,14 +61,12 @@ function evaluarCodigo() {
 
     if (sumaEdades && promedio && multiplicacion && usaPrint) {
         resultado.style.color = "green";
-        resultado.textContent = "✅ ¡Muy bien! Has usado correctamente los operadores matemáticos.";
+         alert("✅ ¡Muy bien! Has usado correctamente los operadores matemáticos.");
         document.getElementById("btnVolverMapa").style.display = "block";
     } else {
-        resultado.style.color = "red";
-        resultado.textContent = "❌ Revisa tus operaciones: suma, promedio y multiplicación. Usa también print().";
+        alert( "❌ Revisa tus operaciones: suma, promedio y multiplicación. Usa también print()");
     }
 }
-
 function guardarYVolverAlMapa() {
     fetch('/usuarios/actualizar-nivel/', {
         method: 'POST',

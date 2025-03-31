@@ -4,16 +4,18 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const texto = [
-    "¡Muy bien! Ahora vamos con estructuras más avanzadas.",
-    "Antes de empezar, te cuento algo importante:\nEn Python puedes escribir COMENTARIOS con el símbolo #",
-    "Lo que escribas después de ese símbolo no afecta al código,\nes solo una nota para ayudarte a entenderlo.",
+    "¡Muy bien! Ahora vamos a explorar estructuras más avanzadas en Python.",
+    "Primero, algo importante:\nEn Python puedes escribir COMENTARIOS usando el símbolo #",
+    "Todo lo que escribas después del símbolo # no se ejecuta.\nSirve para dejar notas o explicaciones dentro del código.",
     "Ejemplo:\n# Esto es un comentario\nmochila = [\"Pokeball\", \"Poción\"]",
-    "Las listas (`list`) guardan elementos en orden. Ejemplo:\nmochila = [\"Pokeball\", \"Poción\"]",
-    "Los diccionarios (`dict`) guardan datos con claves. Ejemplo:\npokemon = {\"nombre\": \"Bulbasaur\", \"tipo\": \"planta\"}",
-    "Puedes acceder así:\nmochila[0] → Pokeball\npokemon[\"tipo\"] → planta",
-    "¡Vamos a organizar tu mochila y tu Pokédex!",
-    "Tu misión:\nCrea una lista con objetos, un diccionario para tu Pokémon,\nañade un nuevo dato y muestra su tipo."
+    "Las listas (`list`) permiten guardar varios elementos en orden. Ejemplo:\nmochila = [\"Pokeball\", \"Poción\"]",
+    "Los diccionarios (`dict`) almacenan datos usando claves. Ejemplo:\npokemon = {\"nombre\": \"Bulbasaur\", \"tipo\": \"planta\"}",
+    "Puedes acceder a los datos así:\nmochila[0] → Pokeball\npokemon[\"tipo\"] → planta",
+    "¡Hora de organizar tu mochila y tu Pokédex!",
+    "Tu misión:\nCrea una lista llamada mochila con al menos dos objetos.\nLuego, crea un diccionario llamado pokemon con las claves \"nombre\" y \"tipo\")."
+
 ];
+
 
 let i = 0;
 let intervalo;
@@ -67,12 +69,10 @@ function evaluarCodigo() {
     const tieneDict = dictNombreTipo || dictTipoNombre;
 
     if (tieneLista && tieneDict) {
-        resultado.style.color = "green";
-        resultado.textContent = "✅ ¡Excelente! Has organizado tu mochila y Pokédex correctamente.";
+        alert("✅ ¡Excelente! Has organizado tu mochila y Pokédex correctamente.");
         document.getElementById("btnVolverMapa").style.display = "block";
     } else {
-        resultado.style.color = "red";
-        resultado.textContent = "❌ Aún falta completar o corregir algo. Revisa listas, diccionarios y prints.";
+        alert("❌ Aún falta completar o corregir algo. Revisa listas, diccionarios y prints.");
     }
 }
 
