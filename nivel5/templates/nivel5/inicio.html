@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="{% static 'nivel5/css/styles_instructora.css' %}">
     <link rel="stylesheet" href="{% static 'nivel5/css/tablaComparacion.css' %}">
 </head>
-<body>
+<body data-nickname="{{ nickname }}">
 
     <div class="contenedor">
         <!-- Imagen de la instructora enA el lado izquierdo (por encima del fondo) -->
@@ -170,6 +170,7 @@
 
 
     <!-- Enlazar el archivo JS -->
+ 
     <script src="{% static 'nivel5/js/nivel5.js' %}"></script>
 </body>
 </html>

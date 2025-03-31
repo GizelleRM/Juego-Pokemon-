@@ -1,3 +1,4 @@
+const nickname = document.body.dataset.nickname;
 document.getElementById("instructora").addEventListener("click", function () {
     condiciones.style.display = "none";
     var globo = document.getElementById("globoDialogo");
@@ -46,6 +47,8 @@ function irPrueba(){
     document.getElementById("prueba").style.display = "block";
 }
 function revisarRespuestas() {
+    
+
     const preguntas = ["c1", "c2", "c3", "c4", "c5"];
     let todasContestadas = true;
 
@@ -88,14 +91,42 @@ function revisarRespuestas() {
             }
         }
     }
-
+    console.log("Puntaje:", puntuacion);
     const resultado = document.getElementById("resultado-condicionales");
     if (puntuacion === preguntas.length) {
         resultado.innerHTML = ` ¡Excelente! Has dominado los condicionales. Puntaje: ${puntuacion}/${preguntas.length}`;
+        actualizarNivel(nickname, 6);
     } else if (puntuacion >= preguntas.length * 0.6) {
         resultado.innerHTML = ` Buen intento. Aciertos: ${puntuacion}/${preguntas.length}. ¡Sigue practicando!`;
     } else {
         resultado.innerHTML = ` Necesitas estudiar más los condicionales... Aciertos: ${puntuacion}/${preguntas.length}`;
     }
 
+}function actualizarNivel(nickName, nivel) {
+    console.log("Enviando solicitud con:", nickName, nivel);
+
+    fetch('/usuarios/actualizar-nivel/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            nickName: nickName,
+            nivel: nivel
+        })
+    })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Respuesta del servidor:', data);
+            if (data.mensaje) {
+                // Redirigir al mapa si la actualización fue exitosa
+                window.location.href = "/mapa/" + nickName + "/";
+            } else {
+                alert('Error al actualizar el nivel: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar la solicitud:', error);
+        });
 }
+
