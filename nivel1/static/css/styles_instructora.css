@@ -1,6 +1,6 @@
 /* Estilos generales para el cuerpo */
 body {
-    background-color: #f4f4f9;
+    background-color: #141414;
     font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
@@ -89,4 +89,22 @@ body {
     overflow: hidden;
     width: 0;
     animation: typing 3s steps(60) forwards; /* 3 segundos, 60 pasos */
+}
+
+.mensaje-instrucciones {
+    position: absolute;
+    left: center;
+    top: 100%;
+    transform: translateY(-50%);
+    color: white;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
+    margin-top: 10px;
+    text-align: center;
+    animation: parpadeo 1s infinite alternate;
+}
+
+@keyframes parpadeo {
+    from { opacity: 1; }
+    to { opacity: 0.3; }
 }

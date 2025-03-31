@@ -48,7 +48,7 @@ def cuestionario(request):
                     aciertos += 1
 
         # 🔹 Lógica para actualizar nivel si tiene 4 o más aciertos
-        if aciertos >= 4 and nickname:
+        if aciertos >= 5 and nickname:
             try:
                 usuario = Users.objects.get(nickName=nickname)
                 if usuario.nivel < 2:

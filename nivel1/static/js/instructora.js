@@ -7,7 +7,7 @@ document.getElementById("instructora").addEventListener("click", function() {
 // Función para mostrar el texto poco a poco en párrafos
 function mostrarTexto() {
     var texto = [
-        "¡Hola! Soy tu instructora. Hoy en nustra primera lección aprenderemos ¿Qué es python?.",
+        "¡Hola! Soy tu instructora. Hoy en nuestra primera lección aprenderemos ¿Qué es python?.",
         "Python es un lenguaje de programación, o sea, un idioma que las computadoras entienden para hacer cosas chidas.",
         "¿Qué puedes hacer con python?",
         "Puedes crear juegos como laberintos o personajes, matemáticas para poder resolver operaciones más rápido que en tu calculadora.",
@@ -15,7 +15,7 @@ function mostrarTexto() {
         "Algunas reglas de python son:",
         "1. Las ordenes se escriben una por una, o sea, Python lee tus instrucciones de arriba hacia abajo, línea por linea.",
         "2. El lenguaje es delicado con las mayúsculas en las instrucciones, por ejemplo print() es correcto, pero Print() es incorrecto.",
-        "3. En python hay palabras especiales que usa el lenguaje usa y no podemos usar para nostros como (if, while, def, for, import, elif, etc.).",
+        "3. En python hay palabras especiales que usa el lenguaje usa y no podemos usar para nosotros como (if, while, def, for, import, elif, etc.).",
         "Ahora para terminar esté nivel haremos un pequeño cuestionario."
     ];
 
@@ -29,7 +29,7 @@ function mostrarTexto() {
             parrafo.innerText = texto[i];  // Escribir el siguiente párrafo
             textoElement.appendChild(parrafo);  // Añadir el párrafo al globo
             i++;
-            setTimeout(escribirTexto, 5500);  // Esperar 4 segundos antes de escribir el siguiente
+            setTimeout(escribirTexto, 5500);  // Esperar 4 segundos antes de escribir el siguiente 5500
         } else {
             // Si es el último párrafo, agregar un evento de clic para cerrar el globo
             textoElement.innerHTML += "<p>Haz clic en cualquier parte para continuar...</p>";

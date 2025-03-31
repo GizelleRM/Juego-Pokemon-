@@ -1,6 +1,6 @@
 /* Fondo tipo Pokémon */
 body {
-    background-color: #f4f4f9;
+    background-color: #141416;
     font-family: 'Press Start 2P', cursive;
     background-image: url('/static/img/fondo_pixel_azul.png'); /* Cambia por el tuyo */
     background-size: cover;
@@ -54,19 +54,31 @@ hr {
 
 /* Botones tipo Pokémon */
 .boton-pokemon {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 12px;
-    padding: 12px 20px;
-    margin: 15px 10px 0 0;
-    background-color: #e63946; /* rojo Pokebola */
+    background-color: red;
     color: white;
-    border: 3px solid #1d3557; /* azul oscuro */
-    border-radius: 8px;
+    border: 3px solid black;
+    padding: 15px 30px;
+    font-size: 16px;
+    font-family: 'Press Start 2P', monospace;
     cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 0.2s ease-in-out;
+    
 }
 
 .boton-pokemon:hover {
-    transform: scale(1.05);
-    background-color: #d62828;
+    background-color: darkred;
+    transform: scale(1.1);
+}
+
+.mensaje-felicidades {
+    background-color: #f7ffde;
+    border: 3px solid green;
+    color: darkgreen;
+    padding: 15px;
+    margin-top: 15px;
+    font-family: 'Press Start 2P', cursive;
+    text-align: center;
+    font-size: 12px;
 }
