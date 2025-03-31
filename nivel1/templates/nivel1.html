@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Instructora</title>
+    
+    <!-- Cargar archivos estáticos -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/styles_instructora.css' %}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <!-- Imagen de la instructora en el lado izquierdo (por encima del fondo) -->
+        <div class="instructora-imagen" id="instructora">
+            <img class="imagen-sobre-video2" src="{% static '/images/instructora/InstructoraParada.png' %}" alt="Instructora">
+        </div>
+        
+        <!-- Imagen de fondo -->
+        <img class="fondo-imagen" src="{% static '/images/fondos/fondoInstructora.jpg' %}" alt="Imagen de Instructora">
+        <!-- Globo de diálogo con el texto (inicialmente oculto) -->
+        <div class="globo-dialogo" id="globoDialogo">
+            <p id="instructorTexto"></p> <!-- El texto aparecerá aquí -->
+        </div>
+    </div>
+
+    <p class="mensaje-instrucciones">👆 Haz clic en la instructora para ver las instrucciones </p>
+    <!-- Enlazar el archivo JS -->
+    <script src="{% static 'js/instructora.js' %}"></script>
+
+</body>
+</html>

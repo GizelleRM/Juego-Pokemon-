@@ -1,0 +1,108 @@
+
+/* Contenedores principales */
+#condiciones, #prueba {
+    position: absolute;
+    top: 50%;
+    right: 10px; 
+    transform: translateY(-50%); 
+    z-index: 3;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+
+/* Título general */
+.Titulo {
+    font-family: 'Verdana', sans-serif;
+    font-size: 12px;
+    font-weight: bold;
+    background-color: #f7e083;
+    color: #2a75bb;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid #2a75bb;
+}
+
+/* Botón "Siguiente" */
+.boton-siguiente-contenedor {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.boton-siguiente {
+    background-color: #2a75bb;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.boton-siguiente:hover {
+    background-color: #1a4f8b;
+}
+
+/* Formulario de prueba */
+#formulario-prueba {
+    font-family: 'Verdana', sans-serif;
+    font-size: 9px;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 10px;
+    border-radius: 8px;
+    max-height: 350px;     /* 🔽 Altura más baja aún */
+    width: 100%;
+    overflow-y: auto;      /* ✅ Scroll interno si es necesario */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    text-align: left;
+    line-height: 1.2;      /* 🔽 Menor espacio entre líneas */
+}
+
+#formulario-prueba p {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #2a75bb;
+    font-size: 10px;
+}
+
+#formulario-prueba label {
+    display: inline-block;
+    margin: 3px 8px 3px 0;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+
+#formulario-prueba input[type="radio"] {
+    margin-right: 5px;
+}
+
+#formulario-prueba button {
+    display: block;
+    margin: 15px auto 0;
+    padding: 6px 12px;
+    font-size: 10px;
+    font-weight: bold;
+    color: white;
+    background-color: #2a75bb;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#formulario-prueba button:hover {
+    background-color: #1a4f8b;
+}

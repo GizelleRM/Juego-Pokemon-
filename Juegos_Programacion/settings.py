@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'nivel_2',
     'nivel_3',
     'nivel_4',
+     'nivel5',
+    'nivel6',
+    'nivel7',
+    'nivel8',
+    'nivel9',
+    'nivel1',
 ]
 
 MIDDLEWARE = [
@@ -133,4 +139,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'Users/static'),
+    os.path.join(BASE_DIR, 'nivel1/static')
 ]

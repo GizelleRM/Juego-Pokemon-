@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>condiciones</title>
+    
+    <!-- Cargar archivos estáticos -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nivel6/css/styles_instructora.css' %}">
+    <link rel="stylesheet" href="{% static 'nivel6/css/tablaComparacion.css' %}">
+</head>
+<body>
+
+    <div class="contenedor">
+        <!-- Imagen de la instructora enA el lado izquierdo (por encima del fondo) -->
+        <div class="instructora-imagen" id="instructora">
+            <img class="imagen-sobre-video2" src="{% static 'Users/images/instructora/InstructoraParada.png' %}" alt="Instructora">
+        </div>
+        
+        <!-- Imagen de fondo -->
+        <img class="fondo-imagen" src="{% static 'Users/images/fondos/fondoInstructora.jpg' %}" >
+
+        <!-- Globo de diálogo con el texto (inicialmente oculto) -->
+        <div class="globo-dialogo" id="globoDialogo">
+            <p id="instructorTexto"></p> <!-- El texto aparecerá aquí -->
+        </div>
+
+        <div id="condiciones" style="display:none;">
+            <div class="Titulo">Condicionales</div>
+            <table class="tabla-operadores">
+                <thead>
+                    <tr>
+                        <th>Significado</th>
+                        <th>Ejemplo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>if</strong><br> Se 	realiza la acción si la condición es verdadera</td>
+                        <td><strong>if </strong><img src="{% static 'nivel6/imagenes/Bulbasur.png' %}" >.nivel ==10 <br>
+                            <code>Bulbasaur evoluciona!!!</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>elif</strong><br> Se realiza la acción si la anterior es falsa</td>
+                        <td><strong>elif </strong><img src="{% static 'nivel5/imagenes/charmanderParado.png' %}" >.nivel &lt; 10 :<br>
+                            <code>Charmander necesita entrenar !!!</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>else</strong><br>Se realiza la acción si no se cumplió ninguna condición anterior</td>
+                        <td><strong>else</strong><img src="{% static 'nivel5/imagenes/squirtleParado.png' %}" >.nivel &gt; 50 :<br>
+                            <code>Squirtle no quiere evolucionar</code></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="boton-siguiente-contenedor">
+                <button class="boton-siguiente" onclick="irPrueba()">ir a la prueba</button>
+            </div> 
+        </div>
+        <div id="prueba" style="display: none;">
+            <div class="Titulo">Prueba tus habilidades</div>
+            <div class="prueba">
+                Observa las situaciones y elige qué tipo de condicional corresponde mejor.
+                <br><br>
+                <code>pokemon = {"nombre": "Charmander", "tipo": "fuego", "hp": 40, "nivel": 18}</code><br>
+                <code>pokemon = {"nombre": "Jigglypuff", "tipo": "normal", "canta": true}</code>
+            </div>
+            <br>
+            <form id="formulario-prueba">
+               <!-- Pregunta 1 -->
+        <p><strong>1. Si el nivel de Charmander es mayor o igual a 16, entonces evoluciona.</strong></p>
+        <label><input type="radio" name="c1"> if </label>
+        <label><input type="radio" name="c1"> elif </label>
+        <label><input type="radio" name="c1"> else </label>
+
+        <!-- Pregunta 2 -->
+        <p><strong>2. Si Jigglypuff no está cantando, pero sabe melodía, entonces canta.</strong></p>
+        <label><input type="radio" name="c2"> if </label>
+        <label><input type="radio" name="c2"> elif </label>
+        <label><input type="radio" name="c2"> else </label>
+
+        <!-- Pregunta 3 -->
+        <p><strong>3. Si el Pokémon no cumple ninguna condición anterior, se va del combate.</strong></p>
+        <label><input type="radio" name="c3"> if </label>
+        <label><input type="radio" name="c3"> elif </label>
+        <label><input type="radio" name="c3"> else </label>
+
+        <!-- Pregunta 4 -->
+        <p><strong>4. Si el tipo del Pokémon es "fuego", entonces puede usar lanzallamas.</strong></p>
+        <label><input type="radio" name="c4"> if </label>
+        <label><input type="radio" name="c4"> elif </label>
+        <label><input type="radio" name="c4"> else </label>
+
+        <!-- Pregunta 5 -->
+        <p><strong>5. Si no es tipo fuego, pero es de nivel mayor a 15, puede usar un ataque especial.</strong></p>
+        <label><input type="radio" name="c5"> if </label>
+        <label><input type="radio" name="c5"> elif </label>
+        <label><input type="radio" name="c5"> else </label>
+        
+                <br><br>
+                <button type="button" onclick="revisarRespuestas()">Revisar</button>
+            </form>
+        
+            <div id="resultado-condicionales" style="margin-top: 20px; font-weight: bold;"></div>
+            
+        </div>
+    </div>
+
+
+    <!-- Enlazar el archivo JS -->
+    <script src="{% static 'nivel6/js/nivel6.js' %}"></script>
+</body>
+</html>
