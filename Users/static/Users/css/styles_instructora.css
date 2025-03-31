@@ -90,3 +90,19 @@ body {
     width: 0;
     animation: typing 3s steps(60) forwards; /* 3 segundos, 60 pasos */
 }
+
+.mensaje-instrucciones-final {
+    position: absolute;
+    left: 65px;
+    top: 65%;
+    transform: translateY(-50%);
+    color: rgb(126, 45, 45);
+    font-family: 'Press Start 2P', cursive;
+   
+    animation: parpadeo 1s infinite alternate;
+}
+
+@keyframes parpadeo {
+    from { opacity: 1; }
+    to { opacity: 0.4; }
+}

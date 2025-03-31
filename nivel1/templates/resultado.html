@@ -1,0 +1,25 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/cuestionario.css' %}">
+
+<div class="contenedor-formulario">
+    <h2>Resultados</h2>
+    <p>Obtuviste {{ aciertos }} de {{ total }} aciertos.</p>
+
+    {% if aciertos == total %}
+        <div class="mensaje-felicidades">
+            🎉 ¡Felicidades! Has contestado todo correctamente.<br>
+            Puedes avanzar al siguiente nivel regresando al mapa.
+        </div>
+    {% endif %}
+
+    <div>
+        <br/>  <br/>
+    <a href="{% url 'cuestionario' %}">
+        <button class="boton-pokemon">Volver a intentar</button>
+    </a>
+
+    <a href="{% url 'vista_mapa' nickname=nickname %}">
+        <button class="boton-pokemon">Regresar al mapa</button>
+    </a>
+</div>
+</div>

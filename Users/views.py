@@ -94,6 +94,10 @@ def login_usuario(request):
             usuario = Users.objects.filter(nickName=nickname).first()
 
             if usuario:
+                 # Guardar el nickname en sesión
+                request.session['nickname'] = usuario.nickName
+                print("NICKNAME EN SESIÓN:", request.session.get('nickname'))
+
                 return JsonResponse({
                     'mensaje': 'Inicio de sesión exitoso',
                     'redirect_url': f'/mapa/{usuario.nickName}/'
