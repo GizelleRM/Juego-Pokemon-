@@ -9,16 +9,22 @@ const zonasObjetivo = {
     7: { left: 36.1, top: 36.3 },
     8: { left: 25.5, top: 3.7 },
     9: { left: 36.1, top: 3.7 },
-    10: { left: 54.7, top: 36.3 }
+    10: { left: 54.7, top: 36.3 },
+    11: { left: 62, top: 5.4 }
 };
 
-let nivelActual = 0;
-
 document.addEventListener("DOMContentLoaded", () => {
-    if (!document.getElementById('mapa')) return;
+    const mapa = document.getElementById("mapa");
+    if (!mapa) return;
+
+    let nivelActual = parseInt(mapa.dataset.nivel) || 0;
+
+    // Mover al avatar directamente al nivel guardado
+    moverAvatarAZona(nivelActual);
 
     // Crear zonas clicables
-    Object.entries(zonasObjetivo).forEach(([nivel, coords]) => {
+    Object.entries(zonasObjetivo).forEach(([nivelStr, coords]) => {
+        const nivel = parseInt(nivelStr);
         const zona = document.createElement('div');
         zona.classList.add('zona-clic');
         zona.dataset.nivel = nivel;
@@ -28,23 +34,33 @@ document.addEventListener("DOMContentLoaded", () => {
         zona.style.height = '9%';
         zona.style.position = 'absolute';
         zona.style.cursor = 'pointer';
-        zona.style.backgroundColor = 'rgba(0, 255, 0, 0)'; // visible por ahora
-        document.getElementById('mapa').appendChild(zona);
-        //
-    });
+        zona.style.transition = 'background-color 0.3s';
+        // Colorear según avance
+        if (nivel < nivelActual) {
+            zona.style.backgroundColor = 'rgba(0, 200, 0, 0.23)'; // verde: completado
+        } else if (nivel <= nivelActual  ) {
+            zona.style.backgroundColor = 'rgba(255, 255, 0, 0.26)'; // amarillo: disponible
+        } else {
+            zona.style.backgroundColor = 'rgba(100, 100, 100, 0.11)'; // gris: bloqueado
+        }
 
-    // Escuchar clics
-    document.querySelectorAll('.zona-clic').forEach(zona => {
+        // Escuchar clics solo si está permitido
         zona.addEventListener('click', () => {
-            const nivel = parseInt(zona.dataset.nivel);
-
-            if (nivel === 1 || nivel === nivelActual + 1) {
+            if (nivel <= nivelActual) {
                 moverAvatarAZona(nivel);
                 nivelActual = nivel;
+
+                if (aplicacionesPorNivel[nivel]) {
+                    setTimeout(() => {
+                        window.location.href = aplicacionesPorNivel[nivel];
+                    }, 500);
+                }
             } else {
-                alert("Primero debes completar el nivel " + (nivelActual + 1));
+                alert("Primero debes completar el nivel " + (nivelActual));
             }
         });
+
+        mapa.appendChild(zona);
     });
 
     // Función que mueve avatar y pokémon
@@ -56,10 +72,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const avatar = document.getElementById("avatar");
         const pokemon = document.getElementById("pokemon");
 
-        avatar.style.left = (objetivo.left-1) + "%";
-        avatar.style.top = (objetivo.top-3 )+ "%";
+        if (!avatar || !pokemon) return;
+
+        avatar.style.left = (objetivo.left - 1) + "%";
+        avatar.style.top = (objetivo.top - 3) + "%";
 
         pokemon.style.left = (objetivo.left + separacionX) + "%";
-        pokemon.style.top = (objetivo.top + separacionY-1.5) + "%";
+        pokemon.style.top = (objetivo.top + separacionY - 1.5) + "%";
     }
 });
