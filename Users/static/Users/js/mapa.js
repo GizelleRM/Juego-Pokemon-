@@ -46,11 +46,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Escuchar clics solo si está permitido
         zona.addEventListener('click', () => {
-            if (nivel === 1 || nivel === nivelActual + 1) {
+            if (nivel <= nivelActual + 1) {
                 moverAvatarAZona(nivel);
-                nivelActual = nivel;
-
-                if (aplicacionesPorNivel[nivel]) {
+                // Solo redirige si el nivel ya fue completado o es el nivel actual
+                if (nivel <= nivelActual && aplicacionesPorNivel[nivel]) {
+                    setTimeout(() => {
+                        window.location.href = aplicacionesPorNivel[nivel];
+                    }, 500);
+                } else if (nivel === nivelActual + 1 && aplicacionesPorNivel[nivel]) {
+                    // Avanza de nivel
                     setTimeout(() => {
                         window.location.href = aplicacionesPorNivel[nivel];
                     }, 500);

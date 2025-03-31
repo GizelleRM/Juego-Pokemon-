@@ -40,9 +40,15 @@
 <div id="resultado" class="mensaje"></div>
 
 <!-- Botón para volver -->
+{% if mostrar_volver %}
+<button id="btnVolverMapa" class="boton-evaluar" onclick="guardarYVolverAlMapa()">
+    Volver al mapa
+</button>
+{% else %}
 <button id="btnVolverMapa" class="boton-evaluar" style="display: none;" onclick="guardarYVolverAlMapa()">
     Volver al mapa
 </button>
+{% endif %}
 
 <!-- Variable JavaScript primero -->
 <script>

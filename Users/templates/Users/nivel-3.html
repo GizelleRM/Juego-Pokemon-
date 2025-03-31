@@ -28,7 +28,7 @@
 
     <textarea id="codigoUsuario" class="area-codigo">
         mochila = ["Pokeball", [COMPLETA]]
-        pokemon = {"nombre": [COMPLETA], [COMPLETA]: "fuego"}
+        pokemon = {"nombre": [COMPLETA], "tipo": [COMPLETA]}
         </textarea>
 
     <!-- Botón para evaluar -->
@@ -36,10 +36,16 @@
 
     <!-- Resultado del código -->
     <div id="resultado" class="mensaje"></div>
-
     <!-- Botón para volver al mapa -->
-    <button id="btnVolverMapa" class="boton-evaluar" style="display: none;" onclick="guardarYVolverAlMapa()">Volver al
-        mapa</button>
+    {% if mostrar_volver %}
+    <button id="btnVolverMapa" class="boton-evaluar" onclick="guardarYVolverAlMapa()">
+        Volver al mapa
+    </button>
+    {% else %}
+    <button id="btnVolverMapa" class="boton-evaluar" style="display: none;" onclick="guardarYVolverAlMapa()">
+        Volver al mapa
+    </button>
+    {% endif %}
 
     <!-- Variable global JS -->
     <script>

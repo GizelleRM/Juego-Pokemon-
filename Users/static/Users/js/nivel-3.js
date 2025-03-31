@@ -63,7 +63,8 @@ function evaluarCodigo() {
     // Lista con al menos un string
     const tieneLista = /mochila\s*=\s*\[\s*["'][^"']+["'](,\s*["'][^"']+["'])*\s*\]/.test(limpio);
     // Diccionario (aceptando nombre y tipo en cualquier orden)
-    const dictNombreTipo = /pokemon\s*=\s*\{[^}]*["']nombre["']\s*:\s*["'][^"']+["'][^}]*["']tipo["']\s*:\s*["'][^"']+["'][^}]*\}/.test(limpio);
+    const dictNombreTipo = /pokemon\s*=\s*\{[^}]*["']nombre["']\s*:\s*["'][^"']+["']\s*,\s*["']tipo["']\s*:\s*["'][^"']+["']\s*\}/.test(limpio);
+    const dictTipoNombre = /pokemon\s*=\s*\{[^}]*["']tipo["']\s*:\s*["'][^"']+["']\s*,\s*["']nombre["']\s*:\s*["'][^"']+["']\s*\}/.test(limpio);
     const tieneDict = dictNombreTipo || dictTipoNombre;
 
     if (tieneLista && tieneDict) {

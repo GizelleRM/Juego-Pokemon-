@@ -53,10 +53,15 @@ print("Poder de ataque:", [COMPLETA])
 <div id="resultado" class="mensaje"></div>
 
 <!-- Botón volver -->
+{% if mostrar_volver %}
+<button id="btnVolverMapa" class="boton-evaluar" onclick="guardarYVolverAlMapa()">
+    Volver al mapa
+</button>
+{% else %}
 <button id="btnVolverMapa" class="boton-evaluar" style="display: none;" onclick="guardarYVolverAlMapa()">
     Volver al mapa
 </button>
-
+{% endif %}
 <!-- nickName global -->
 <script>
     const nickName = "{{ nickName|escapejs }}";
